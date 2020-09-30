@@ -2,14 +2,16 @@ package pageObject.web.locations;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import pageObject.web.BasePage;
-import utils.DropdownHelper;
+import utils.Helper;
 import utils.dataGeneration.LocationBuilder;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class LocationCreationPage extends BasePage {
-    DropdownHelper dropdownHelper = new DropdownHelper();
+    public static final String crumbs = "Create";
+
+    Helper helper = new Helper();
 
     public String pageUrl(){
         return getBaseUrl() + "locations/create";
@@ -21,9 +23,9 @@ public class LocationCreationPage extends BasePage {
         $(".GenericModifiableTypeSelect-ListItemContainer").shouldHave(Condition.text("DefaultLocationType")).click();
         $("input[name='locationName']").sendKeys(location.getName());
         $$(".genericFormFooter-SaveButton-enabled").get(0).click();
-        dropdownHelper.selectOptionFromDropdown(location.getCountry(), "Country");
-        dropdownHelper.selectOptionFromDropdown("-", "State");
-        dropdownHelper.selectOptionFromDropdown(location.getCity(), "City");
+        helper.selectOptionFromDropdown(location.getCountry(), "Country");
+        helper.selectOptionFromDropdown("-", "State");
+        helper.selectOptionFromDropdown(location.getCity(), "City");
         $("input[name='locationAddress']").sendKeys(location.getAddress());
     }
 

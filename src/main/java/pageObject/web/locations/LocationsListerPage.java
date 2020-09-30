@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class LocationsListerPage extends BasePage {
+    public static final String crumbs = "Locations";
     public Asserts asserts = new Asserts();
 
     public String pageUrl(){

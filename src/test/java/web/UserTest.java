@@ -48,7 +48,7 @@ public class UserTest extends BaseTest{
         homepage.openPage(homepage.pageUrl());
         homepage.logInAsAdmin();
         homepage.logout();
-        logs.getConsoleLog();
+        homepage.asserts.checkUserIsLoggedOut();
     }
 
 }

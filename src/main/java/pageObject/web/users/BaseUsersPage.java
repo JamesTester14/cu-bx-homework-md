@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import pageObject.web.BasePage;
-import utils.DropdownHelper;
+import utils.Helper;
 import utils.dataGeneration.UserBuilder;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class BaseUsersPage extends BasePage {
 
-    DropdownHelper dropdownHelper = new DropdownHelper();
+    Helper dropdownHelper = new Helper();
 
     @Step("Click on 'Create New'")
     public void createNewUser(UserBuilder user) {

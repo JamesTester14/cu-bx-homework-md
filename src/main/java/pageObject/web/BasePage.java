@@ -4,15 +4,18 @@ import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static utils.Credentials.ADMIN_EMAIL;
 import static utils.Credentials.ADMIN_PASSWORD;
 
 public class BasePage {
+    public Asserts asserts = new Asserts();
 
     protected String getBaseUrl() {
         return System.getProperty("selenide.baseUrl");
     }
-    public String pageUrl(){
+
+    public String pageUrl() {
         return getBaseUrl();
     }
 
@@ -22,7 +25,7 @@ public class BasePage {
     }
 
     @Step("Open version")
-    public void checkVersionIs(String version){
+    public void checkVersionIs(String version) {
         $(".mainLayoutheader-logoutDropDownOptions").click();
         $$(".headerToolTipMenuItem-Wrapper").findBy(Condition.text("About")).click();
         $(".Modal-Content").shouldHave(Condition.text(version));
@@ -41,5 +44,17 @@ public class BasePage {
         $(".mainLayoutheader-logoutDropDownOptions").click();
         $$(".headerToolTipMenuItem-Wrapper").findBy(Condition.text("log Out")).click();
         $(".LoginFormComponent-SignInContainer").shouldBe(Condition.visible);
+    }
+
+    public class Asserts {
+        @Step
+        public void checkUserIsLoggedOut() {
+            assertAll(
+                    () -> $("input[name='email']").shouldBe(Condition.visible),
+                    () -> $("input[name='password']").shouldBe(Condition.visible),
+                    () -> $(".LoginFormComponent-LoginButton").shouldBe(Condition.visible)
+            );
+
+        }
     }
 }

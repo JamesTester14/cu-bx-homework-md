@@ -29,7 +29,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:1.8.0-beta4'
 
     //UI
-    implementation 'com.codeborne:selenide:5.13.0'
+    implementation 'com.codeborne:selenide:5.15.0'
     implementation 'io.qameta.allure:allure-selenide:2.13.3'
 
     //API
@@ -47,6 +47,9 @@ dependencies {
 }
 
 task web(type: Test) {
+    systemProperty "junit.jupiter.execution.parallel.enabled", true
+    systemProperty "junit.jupiter.execution.parallel.config.strategy", "fixed"
+    systemProperty "junit.jupiter.execution.parallel.config.fixed.parallelism", 3
 
     testLogging {
         lifecycle {
