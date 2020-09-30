@@ -1,4 +1,4 @@
-package pageObject.api.deviceinfo.request;
+package pageObject.api.deviceinfoRequest;
 
 import lombok.Data;
 

@@ -33,6 +33,7 @@ dependencies {
     implementation 'io.qameta.allure:allure-selenide:2.13.3'
 
     //API
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
     compile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.1'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     compile group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.2'
@@ -62,4 +63,11 @@ task web(type: Test) {
     }
     outputs.upToDateWhen({ false })
 
+}
+
+task api(type: Test) {
+
+    useJUnitPlatform {
+        includeTags 'Api'
+    }
 }

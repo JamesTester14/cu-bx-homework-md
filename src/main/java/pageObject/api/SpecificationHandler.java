@@ -11,7 +11,6 @@ import io.restassured.specification.ResponseSpecification;
 public class SpecificationHandler {
     public static RequestSpecification requestSpec
             = new RequestSpecBuilder()
-            .addHeader("Authorization", "")
             .setAccept(ContentType.JSON)
             .build()
             .filter(new AllureRestAssured());
