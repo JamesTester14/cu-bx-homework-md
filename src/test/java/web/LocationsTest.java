@@ -1,12 +1,13 @@
+package web;
+
 import junitTags.Web;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pageObject.LocationCreationPage;
-import pageObject.LocationsListerPage;
+import pageObject.locations.LocationCreationPage;
+import pageObject.locations.LocationsListerPage;
 import utils.dataGeneration.LocationBuilder;
 
-import static com.codeborne.selenide.Selenide.$;
 import static utils.dataGeneration.Randomizer.randomizeString;
 
 @Web
@@ -28,6 +29,7 @@ public class LocationsTest extends BaseTest {
         int before = locationLister.getLocationsAmount();
         locationLister.addNewLocation();
         locationCreate.fillNewLocation(location);
+        locationCreate.saveNewLocation();
         int after = locationLister.getLocationsAmount();
         Assert.assertEquals(before+1, after);
         locationLister.searchForLocation(location.getName());

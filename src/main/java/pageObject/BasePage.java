@@ -13,6 +13,9 @@ public class BasePage {
     protected String getBaseUrl() {
         return System.getProperty("selenide.baseUrl");
     }
+    public String pageUrl(){
+        return getBaseUrl();
+    }
 
     @Step("Open {url} page")
     public void openPage(String url) {
