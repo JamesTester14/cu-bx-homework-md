@@ -9,5 +9,4 @@ public class BaseDevices {
 
     private String manufacturerId;
     private String name;
-//    private ArrayList<Datum> datum;
 }
