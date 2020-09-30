@@ -4,8 +4,8 @@ import junitTags.Web;
 import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pageObject.locations.LocationCreationPage;
-import pageObject.locations.LocationsListerPage;
+import pageObject.web.locations.LocationCreationPage;
+import pageObject.web.locations.LocationsListerPage;
 import utils.dataGeneration.LocationBuilder;
 
 import static utils.dataGeneration.Randomizer.randomizeString;

@@ -1,12 +1,12 @@
-package pageObject.locations;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
+package pageObject.web.locations;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
-import pageObject.BasePage;
+import pageObject.web.BasePage;
 import utils.DropdownHelper;
 import utils.dataGeneration.LocationBuilder;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class LocationCreationPage extends BasePage {
     DropdownHelper dropdownHelper = new DropdownHelper();

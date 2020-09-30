@@ -1,9 +1,9 @@
-package pageObject.locations;
+package pageObject.web.locations;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
-import pageObject.BasePage;
+import pageObject.web.BasePage;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;

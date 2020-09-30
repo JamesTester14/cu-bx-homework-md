@@ -2,15 +2,18 @@ package web;
 
 import junitTags.Web;
 import org.junit.jupiter.api.Test;
-import pageObject.BasePage;
-import pageObject.users.UsersListerPage;
+import pageObject.web.BasePage;
+import pageObject.web.users.UsersListerPage;
+import utils.BrowserLogs;
 import utils.dataGeneration.UserBuilder;
+
 import static utils.dataGeneration.Randomizer.randomizeString;
 
 @Web
 public class UserTest extends BaseTest{
     UsersListerPage userLister = new UsersListerPage();
     BasePage homepage = new BasePage();
+    BrowserLogs logs = new BrowserLogs();
 
     @Test
     void checkUserCreation(){
@@ -31,7 +34,21 @@ public class UserTest extends BaseTest{
         userLister.visitOperatorsLister();
         userLister.createNewUser(user);
         userLister.asserts.checkUserSuccessCreation();
+    }
 
+    @Test
+    void checkVersionNumber(){
+        homepage.openPage(homepage.pageUrl());
+        homepage.logInAsAdmin();
+        homepage.checkVersionIs("3.4.0");
+    }
+
+    @Test
+    void checkLogoutIs200(){
+        homepage.openPage(homepage.pageUrl());
+        homepage.logInAsAdmin();
+        homepage.logout();
+        logs.getConsoleLog();
     }
 
 }

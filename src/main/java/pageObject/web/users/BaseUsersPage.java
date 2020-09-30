@@ -1,9 +1,9 @@
-package pageObject.users;
+package pageObject.web.users;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
-import pageObject.BasePage;
+import pageObject.web.BasePage;
 import utils.DropdownHelper;
 import utils.dataGeneration.UserBuilder;
 
