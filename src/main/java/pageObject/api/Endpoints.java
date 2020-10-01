@@ -23,7 +23,7 @@ public class Endpoints {
                 .header("Content-Type", "application/json")
                 .body(map)
                 .when()
-                .post("ums/v1/users/loginCredentials").then().log().body()
+                .post("ums/v1/users/loginCredentials").then()
                 .extract().body().as(AuthResponse.class).getAccessToken();
     }
 

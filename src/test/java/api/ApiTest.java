@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.dataGeneration.Randomizer.randomizeString;
 
 @Api
@@ -18,7 +19,8 @@ public class ApiTest extends BaseApi {
 
     @Test
     void checkInformationIsUpdated() throws IOException {
-        updateDeviceInfo(randomizeString(10));
+        String randomName = randomizeString(10);
+        updateDeviceInfo(randomName);
         String name = null;
         List<BaseDevices> baseDevices = endpoints.getBaseDevices();
         Optional<BaseDevices> expectedBaseDevice = baseDevices.stream().filter(baseDevices1 -> baseDevices1.getManufacturerId()
@@ -26,7 +28,7 @@ public class ApiTest extends BaseApi {
         if (expectedBaseDevice.isPresent()){
             name = expectedBaseDevice.get().getName();
         }
-        name.equals("Edited Name");
+        assertTrue(name.equals(randomName));
     }
 
     void updateDeviceInfo(String name) throws IOException {
