@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static utils.dataGeneration.Randomizer.randomizeString;
 
 @Api
@@ -28,7 +28,7 @@ public class ApiTest extends BaseApi {
         if (expectedBaseDevice.isPresent()){
             name = expectedBaseDevice.get().getName();
         }
-        assertTrue(name.equals(randomName));
+        assertEquals(name, randomName);
     }
 
     void updateDeviceInfo(String name) throws IOException {
