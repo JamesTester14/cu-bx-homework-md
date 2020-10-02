@@ -40,7 +40,7 @@ public class UserTest extends BaseTest{
     void checkVersionNumber(){
         homepage.openPage(homepage.pageUrl());
         homepage.logInAsAdmin();
-        homepage.checkVersionIs("3.4.0");
+        homepage.checkVersionIs("4.0.0");
     }
 
     @Test
