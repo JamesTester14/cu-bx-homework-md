@@ -20,6 +20,7 @@ public class LocationsTest extends BaseTest {
     void visitLocationsPage() {
         LocationBuilder location = new LocationBuilder().toBuilder()
                 .name(randomizeString(10))
+                .description("Test description")
                 .address(randomizeString(10))
                 .country("Ukraine")
                 .city("Kyiv")

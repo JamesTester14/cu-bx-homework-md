@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 public class LocationBuilder {
     String name;
+    String description;
     String address;
     String country;
     String city;
